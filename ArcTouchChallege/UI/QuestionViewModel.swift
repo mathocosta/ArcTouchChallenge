@@ -12,6 +12,7 @@ protocol QuestionViewModelDelegate: class {
     func shouldReloadContent()
     func update(timerText: String)
     func presentEndingAlert(title: String, message: String, buttonTitle: String)
+    func viewStateChanged(to newState: QuestionViewModel.State)
 }
 
 class QuestionViewModel: NSObject {

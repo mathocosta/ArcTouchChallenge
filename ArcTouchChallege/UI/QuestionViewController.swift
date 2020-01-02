@@ -10,12 +10,19 @@ import UIKit
 
 class QuestionViewController: UIViewController {
     // MARK: - Properties
+    @IBOutlet weak var loadingView: LoadingView!
+
+    // Main content
+    @IBOutlet weak var contentWrapperView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var answerTextField: UITextField!
+    @IBOutlet weak var answersTableView: UITableView!
+
+    // Bottom view
+    @IBOutlet weak var bottomWrapperView: UIView!
     @IBOutlet weak var answersCounterLabel: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var resetButton: UIButton!
-    @IBOutlet weak var answersTableView: UITableView!
 
     private lazy var viewModel: QuestionViewModel = {
         return QuestionViewModel(delegate: self)
@@ -32,7 +39,9 @@ class QuestionViewController: UIViewController {
     private func setupUI() {
         resetButton.backgroundColor = .customOrange
         resetButton.setTitleColor(.white, for: .normal)
-        resetButton.layer.cornerRadius = 5.0
+        resetButton.layer.cornerRadius = 10.0
+
+        loadingView.isHidden = true
     }
 
     private func setupContent() {
@@ -60,6 +69,10 @@ extension QuestionViewController: QuestionViewModelDelegate {
         refreshView()
     }
 
+    func update(timerText: String) {
+        timerLabel.text = timerText
+    }
+
     func presentEndingAlert(title: String, message: String, buttonTitle: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: buttonTitle, style: .cancel) { [weak self] _ in
@@ -70,7 +83,11 @@ extension QuestionViewController: QuestionViewModelDelegate {
         present(alert, animated: true, completion: nil)
     }
 
-    func update(timerText: String) {
-        timerLabel.text = timerText
+    func viewStateChanged(to newState: QuestionViewModel.State) {
+        if newState == .loading {
+            loadingView.isHidden = false
+        } else {
+            contentWrapperView.isHidden = false
+        }
     }
 }
