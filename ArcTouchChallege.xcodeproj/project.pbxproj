@@ -13,9 +13,10 @@
 		271581E523BE3873002B283C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 271581E323BE3873002B283C /* LaunchScreen.storyboard */; };
 		271581F023BE3873002B283C /* ArcTouchChallegeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271581EF23BE3873002B283C /* ArcTouchChallegeTests.swift */; };
 		271581FC23BE3958002B283C /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271581FA23BE3958002B283C /* QuestionViewController.swift */; };
-		271581FD23BE3958002B283C /* QuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 271581FB23BE3958002B283C /* QuestionViewController.xib */; };
 		2715820523BE4783002B283C /* QuestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2715820423BE4783002B283C /* QuestionViewModel.swift */; };
 		2715820923BE4D7B002B283C /* UIColor+CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2715820823BE4D7B002B283C /* UIColor+CustomColors.swift */; };
+		2715820C23BE5799002B283C /* QuizViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2715820B23BE5799002B283C /* QuizViewModelTests.swift */; };
+		2767797E23BE8B1300FA6550 /* QuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2767797D23BE8B1300FA6550 /* QuestionViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,9 +40,10 @@
 		271581EF23BE3873002B283C /* ArcTouchChallegeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcTouchChallegeTests.swift; sourceTree = "<group>"; };
 		271581F123BE3873002B283C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		271581FA23BE3958002B283C /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
-		271581FB23BE3958002B283C /* QuestionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionViewController.xib; sourceTree = "<group>"; };
 		2715820423BE4783002B283C /* QuestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewModel.swift; sourceTree = "<group>"; };
 		2715820823BE4D7B002B283C /* UIColor+CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+CustomColors.swift"; sourceTree = "<group>"; };
+		2715820B23BE5799002B283C /* QuizViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewModelTests.swift; sourceTree = "<group>"; };
+		2767797D23BE8B1300FA6550 /* QuestionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 		271581EE23BE3873002B283C /* ArcTouchChallegeTests */ = {
 			isa = PBXGroup;
 			children = (
+				2715820A23BE577C002B283C /* UI */,
 				271581EF23BE3873002B283C /* ArcTouchChallegeTests.swift */,
 				271581F123BE3873002B283C /* Info.plist */,
 			);
@@ -112,7 +115,7 @@
 		271581FF23BE3D09002B283C /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				271581FB23BE3958002B283C /* QuestionViewController.xib */,
+				2767797D23BE8B1300FA6550 /* QuestionViewController.xib */,
 				271581FA23BE3958002B283C /* QuestionViewController.swift */,
 				2715820423BE4783002B283C /* QuestionViewModel.swift */,
 			);
@@ -143,6 +146,14 @@
 				2715820823BE4D7B002B283C /* UIColor+CustomColors.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2715820A23BE577C002B283C /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				2715820B23BE5799002B283C /* QuizViewModelTests.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,7 +240,7 @@
 			files = (
 				271581E523BE3873002B283C /* LaunchScreen.storyboard in Resources */,
 				271581E223BE3873002B283C /* Assets.xcassets in Resources */,
-				271581FD23BE3958002B283C /* QuestionViewController.xib in Resources */,
+				2767797E23BE8B1300FA6550 /* QuestionViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				271581F023BE3873002B283C /* ArcTouchChallegeTests.swift in Sources */,
+				2715820C23BE5799002B283C /* QuizViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

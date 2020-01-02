@@ -25,7 +25,7 @@ class QuestionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        bindViewModel()
+        setupContent()
     }
 
     // MARK: - Methods
@@ -35,7 +35,7 @@ class QuestionViewController: UIViewController {
         resetButton.layer.cornerRadius = 5.0
     }
 
-    private func bindViewModel() {
+    private func setupContent() {
         titleLabel.text = viewModel.titleText
         answerTextField.placeholder = viewModel.textFieldPlaceholder
         answersCounterLabel.text = viewModel.answersCounterText
@@ -43,9 +43,34 @@ class QuestionViewController: UIViewController {
         resetButton.setTitle(viewModel.resetButtonTitleText, for: .normal)
     }
 
+    private func refreshView() {
+        setupContent()
+        viewModel.fireTimer()
+    }
+
+    @IBAction func resetButtonTapped(_ sender: UIButton) {
+        viewModel.reset()
+    }
+
 }
 
 // MARK: - QuestionViewModelDelegate
 extension QuestionViewController: QuestionViewModelDelegate {
+    func shouldReloadContent() {
+        refreshView()
+    }
 
+    func presentEndingAlert(title: String, message: String, buttonTitle: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: buttonTitle, style: .cancel) { [weak self] _ in
+            self?.viewModel.reset()
+            alert.dismiss(animated: true, completion: nil)
+        })
+
+        present(alert, animated: true, completion: nil)
+    }
+
+    func update(timerText: String) {
+        timerLabel.text = timerText
+    }
 }

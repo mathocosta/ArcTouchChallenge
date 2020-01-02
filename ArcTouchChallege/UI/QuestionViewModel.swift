@@ -9,11 +9,32 @@
 import Foundation
 
 protocol QuestionViewModelDelegate: class {
+    func shouldReloadContent()
+    func update(timerText: String)
+    func presentEndingAlert(title: String, message: String, buttonTitle: String)
 }
 
 class QuestionViewModel: NSObject {
+    enum State {
+        case loading, ready
+    }
+
     // MARK: - Properties
     weak var delegate: QuestionViewModelDelegate?
+
+    // 5 minutes
+    private let defaultTimeInterval: Double = 5 * 60
+    private var timeLeft: Double
+    private var timer: Timer!
+
+    var allAnswers = [String]()
+    var correctAnswers = [String]()
+
+    var viewState: State
+
+    var correctAnswersCounter: Int {
+        return correctAnswers.count
+    }
 
     var titleText: String {
         return "What are all the Java keywords?"
@@ -37,12 +58,48 @@ class QuestionViewModel: NSObject {
 
     // MARK: - Initializers
     init(delegate: QuestionViewModelDelegate) {
-        super.init()
         self.delegate = delegate
+        self.viewState = .ready
+        self.timeLeft = defaultTimeInterval
+        super.init()
+        fireTimer()
     }
 
     // MARK: - Methods
+    func reset() {
+        timeLeft = defaultTimeInterval
+        timer.invalidate()
+        delegate?.shouldReloadContent()
+    }
+
     func check(keyword: String) -> Bool {
         return true
+    }
+
+    func fireTimer() {
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: timerHasEnded(_:))
+    }
+
+    func timerHasEnded(_ timer: Timer) {
+        timeLeft -= 1
+        let minutes = Int(timeLeft) / 60 % 60
+        let seconds = Int(timeLeft) % 60
+
+        let newText = String(format: "%02i:%02i", minutes, seconds)
+        delegate?.update(timerText: newText)
+
+        if timeLeft <= 0 {
+            timer.invalidate()
+            timeIsOver()
+        }
+    }
+
+    func timeIsOver() {
+        let message = "Sorry, time is up! You got \(correctAnswersCounter) of 50 answers"
+        delegate?.presentEndingAlert(
+            title: "Time finished",
+            message: message,
+            buttonTitle: "Try again"
+        )
     }
 }
