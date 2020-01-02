@@ -15,8 +15,9 @@
 		271581FC23BE3958002B283C /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271581FA23BE3958002B283C /* QuestionViewController.swift */; };
 		2715820523BE4783002B283C /* QuestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2715820423BE4783002B283C /* QuestionViewModel.swift */; };
 		2715820923BE4D7B002B283C /* UIColor+CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2715820823BE4D7B002B283C /* UIColor+CustomColors.swift */; };
-		2715820C23BE5799002B283C /* QuizViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2715820B23BE5799002B283C /* QuizViewModelTests.swift */; };
+		2715820C23BE5799002B283C /* QuestionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2715820B23BE5799002B283C /* QuestionViewModelTests.swift */; };
 		2767797E23BE8B1300FA6550 /* QuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2767797D23BE8B1300FA6550 /* QuestionViewController.xib */; };
+		27B0B89123BEA34D0047BAF1 /* QuestionViewModelDelegateMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B0B89023BEA34D0047BAF1 /* QuestionViewModelDelegateMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,8 +43,9 @@
 		271581FA23BE3958002B283C /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		2715820423BE4783002B283C /* QuestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewModel.swift; sourceTree = "<group>"; };
 		2715820823BE4D7B002B283C /* UIColor+CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+CustomColors.swift"; sourceTree = "<group>"; };
-		2715820B23BE5799002B283C /* QuizViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewModelTests.swift; sourceTree = "<group>"; };
+		2715820B23BE5799002B283C /* QuestionViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewModelTests.swift; sourceTree = "<group>"; };
 		2767797D23BE8B1300FA6550 /* QuestionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionViewController.xib; sourceTree = "<group>"; };
+		27B0B89023BEA34D0047BAF1 /* QuestionViewModelDelegateMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewModelDelegateMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,7 +153,8 @@
 		2715820A23BE577C002B283C /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				2715820B23BE5799002B283C /* QuizViewModelTests.swift */,
+				2715820B23BE5799002B283C /* QuestionViewModelTests.swift */,
+				27B0B89023BEA34D0047BAF1 /* QuestionViewModelDelegateMock.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -291,7 +294,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				271581F023BE3873002B283C /* ArcTouchChallegeTests.swift in Sources */,
-				2715820C23BE5799002B283C /* QuizViewModelTests.swift in Sources */,
+				27B0B89123BEA34D0047BAF1 /* QuestionViewModelDelegateMock.swift in Sources */,
+				2715820C23BE5799002B283C /* QuestionViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
