@@ -14,6 +14,8 @@
 		271581F023BE3873002B283C /* ArcTouchChallegeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271581EF23BE3873002B283C /* ArcTouchChallegeTests.swift */; };
 		271581FC23BE3958002B283C /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271581FA23BE3958002B283C /* QuestionViewController.swift */; };
 		271581FD23BE3958002B283C /* QuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 271581FB23BE3958002B283C /* QuestionViewController.xib */; };
+		2715820523BE4783002B283C /* QuestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2715820423BE4783002B283C /* QuestionViewModel.swift */; };
+		2715820923BE4D7B002B283C /* UIColor+CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2715820823BE4D7B002B283C /* UIColor+CustomColors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,8 @@
 		271581F123BE3873002B283C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		271581FA23BE3958002B283C /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		271581FB23BE3958002B283C /* QuestionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionViewController.xib; sourceTree = "<group>"; };
+		2715820423BE4783002B283C /* QuestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewModel.swift; sourceTree = "<group>"; };
+		2715820823BE4D7B002B283C /* UIColor+CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+CustomColors.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,7 @@
 		271581D723BE3872002B283C /* ArcTouchChallege */ = {
 			isa = PBXGroup;
 			children = (
+				2715820623BE4D67002B283C /* Shared */,
 				271581FE23BE3CF8002B283C /* Resources */,
 				271581FF23BE3D09002B283C /* UI */,
 				2715820023BE3D1A002B283C /* SupportingFiles */,
@@ -109,6 +114,7 @@
 			children = (
 				271581FB23BE3958002B283C /* QuestionViewController.xib */,
 				271581FA23BE3958002B283C /* QuestionViewController.swift */,
+				2715820423BE4783002B283C /* QuestionViewModel.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -121,6 +127,22 @@
 				271581E623BE3873002B283C /* Info.plist */,
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		2715820623BE4D67002B283C /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				2715820723BE4D6C002B283C /* Extensions */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		2715820723BE4D6C002B283C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2715820823BE4D7B002B283C /* UIColor+CustomColors.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,7 +268,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				271581D923BE3872002B283C /* AppDelegate.swift in Sources */,
+				2715820923BE4D7B002B283C /* UIColor+CustomColors.swift in Sources */,
 				271581FC23BE3958002B283C /* QuestionViewController.swift in Sources */,
+				2715820523BE4783002B283C /* QuestionViewModel.swift in Sources */,
 				271581DB23BE3872002B283C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
