@@ -1,0 +1,513 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		271581D923BE3872002B283C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271581D823BE3872002B283C /* AppDelegate.swift */; };
+		271581DB23BE3872002B283C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271581DA23BE3872002B283C /* SceneDelegate.swift */; };
+		271581E223BE3873002B283C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 271581E123BE3873002B283C /* Assets.xcassets */; };
+		271581E523BE3873002B283C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 271581E323BE3873002B283C /* LaunchScreen.storyboard */; };
+		271581F023BE3873002B283C /* ArcTouchChallegeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271581EF23BE3873002B283C /* ArcTouchChallegeTests.swift */; };
+		271581FC23BE3958002B283C /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271581FA23BE3958002B283C /* QuestionViewController.swift */; };
+		271581FD23BE3958002B283C /* QuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 271581FB23BE3958002B283C /* QuestionViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		271581EC23BE3873002B283C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 271581CD23BE3872002B283C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 271581D423BE3872002B283C;
+			remoteInfo = ArcTouchChallege;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		271581D523BE3872002B283C /* ArcTouchChallege.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArcTouchChallege.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		271581D823BE3872002B283C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		271581DA23BE3872002B283C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		271581E123BE3873002B283C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		271581E423BE3873002B283C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		271581E623BE3873002B283C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		271581EB23BE3873002B283C /* ArcTouchChallegeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArcTouchChallegeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		271581EF23BE3873002B283C /* ArcTouchChallegeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArcTouchChallegeTests.swift; sourceTree = "<group>"; };
+		271581F123BE3873002B283C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		271581FA23BE3958002B283C /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
+		271581FB23BE3958002B283C /* QuestionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		271581D223BE3872002B283C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		271581E823BE3873002B283C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		271581CC23BE3872002B283C = {
+			isa = PBXGroup;
+			children = (
+				271581D723BE3872002B283C /* ArcTouchChallege */,
+				271581EE23BE3873002B283C /* ArcTouchChallegeTests */,
+				271581D623BE3872002B283C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		271581D623BE3872002B283C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				271581D523BE3872002B283C /* ArcTouchChallege.app */,
+				271581EB23BE3873002B283C /* ArcTouchChallegeTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		271581D723BE3872002B283C /* ArcTouchChallege */ = {
+			isa = PBXGroup;
+			children = (
+				271581FE23BE3CF8002B283C /* Resources */,
+				271581FF23BE3D09002B283C /* UI */,
+				2715820023BE3D1A002B283C /* SupportingFiles */,
+			);
+			path = ArcTouchChallege;
+			sourceTree = "<group>";
+		};
+		271581EE23BE3873002B283C /* ArcTouchChallegeTests */ = {
+			isa = PBXGroup;
+			children = (
+				271581EF23BE3873002B283C /* ArcTouchChallegeTests.swift */,
+				271581F123BE3873002B283C /* Info.plist */,
+			);
+			path = ArcTouchChallegeTests;
+			sourceTree = "<group>";
+		};
+		271581FE23BE3CF8002B283C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				271581E123BE3873002B283C /* Assets.xcassets */,
+				271581E323BE3873002B283C /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		271581FF23BE3D09002B283C /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				271581FB23BE3958002B283C /* QuestionViewController.xib */,
+				271581FA23BE3958002B283C /* QuestionViewController.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		2715820023BE3D1A002B283C /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				271581DA23BE3872002B283C /* SceneDelegate.swift */,
+				271581D823BE3872002B283C /* AppDelegate.swift */,
+				271581E623BE3873002B283C /* Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		271581D423BE3872002B283C /* ArcTouchChallege */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 271581F423BE3873002B283C /* Build configuration list for PBXNativeTarget "ArcTouchChallege" */;
+			buildPhases = (
+				271581D123BE3872002B283C /* Sources */,
+				271581D223BE3872002B283C /* Frameworks */,
+				271581D323BE3872002B283C /* Resources */,
+				2715820123BE3E46002B283C /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ArcTouchChallege;
+			productName = ArcTouchChallege;
+			productReference = 271581D523BE3872002B283C /* ArcTouchChallege.app */;
+			productType = "com.apple.product-type.application";
+		};
+		271581EA23BE3873002B283C /* ArcTouchChallegeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 271581F723BE3873002B283C /* Build configuration list for PBXNativeTarget "ArcTouchChallegeTests" */;
+			buildPhases = (
+				271581E723BE3873002B283C /* Sources */,
+				271581E823BE3873002B283C /* Frameworks */,
+				271581E923BE3873002B283C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				271581ED23BE3873002B283C /* PBXTargetDependency */,
+			);
+			name = ArcTouchChallegeTests;
+			productName = ArcTouchChallegeTests;
+			productReference = 271581EB23BE3873002B283C /* ArcTouchChallegeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		271581CD23BE3872002B283C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = mathocosta;
+				TargetAttributes = {
+					271581D423BE3872002B283C = {
+						CreatedOnToolsVersion = 11.3;
+					};
+					271581EA23BE3873002B283C = {
+						CreatedOnToolsVersion = 11.3;
+						TestTargetID = 271581D423BE3872002B283C;
+					};
+				};
+			};
+			buildConfigurationList = 271581D023BE3872002B283C /* Build configuration list for PBXProject "ArcTouchChallege" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 271581CC23BE3872002B283C;
+			productRefGroup = 271581D623BE3872002B283C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				271581D423BE3872002B283C /* ArcTouchChallege */,
+				271581EA23BE3873002B283C /* ArcTouchChallegeTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		271581D323BE3872002B283C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				271581E523BE3873002B283C /* LaunchScreen.storyboard in Resources */,
+				271581E223BE3873002B283C /* Assets.xcassets in Resources */,
+				271581FD23BE3958002B283C /* QuestionViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		271581E923BE3873002B283C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2715820123BE3E46002B283C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		271581D123BE3872002B283C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				271581D923BE3872002B283C /* AppDelegate.swift in Sources */,
+				271581FC23BE3958002B283C /* QuestionViewController.swift in Sources */,
+				271581DB23BE3872002B283C /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		271581E723BE3873002B283C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				271581F023BE3873002B283C /* ArcTouchChallegeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		271581ED23BE3873002B283C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 271581D423BE3872002B283C /* ArcTouchChallege */;
+			targetProxy = 271581EC23BE3873002B283C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		271581E323BE3873002B283C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				271581E423BE3873002B283C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		271581F223BE3873002B283C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		271581F323BE3873002B283C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		271581F523BE3873002B283C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y93JMM3H2T;
+				INFOPLIST_FILE = ArcTouchChallege/SupportingFiles/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mathocosta.ArcTouchChallege;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		271581F623BE3873002B283C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y93JMM3H2T;
+				INFOPLIST_FILE = ArcTouchChallege/SupportingFiles/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mathocosta.ArcTouchChallege;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		271581F823BE3873002B283C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y93JMM3H2T;
+				INFOPLIST_FILE = ArcTouchChallegeTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mathocosta.ArcTouchChallegeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ArcTouchChallege.app/ArcTouchChallege";
+			};
+			name = Debug;
+		};
+		271581F923BE3873002B283C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y93JMM3H2T;
+				INFOPLIST_FILE = ArcTouchChallegeTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mathocosta.ArcTouchChallegeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ArcTouchChallege.app/ArcTouchChallege";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		271581D023BE3872002B283C /* Build configuration list for PBXProject "ArcTouchChallege" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				271581F223BE3873002B283C /* Debug */,
+				271581F323BE3873002B283C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		271581F423BE3873002B283C /* Build configuration list for PBXNativeTarget "ArcTouchChallege" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				271581F523BE3873002B283C /* Debug */,
+				271581F623BE3873002B283C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		271581F723BE3873002B283C /* Build configuration list for PBXNativeTarget "ArcTouchChallegeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				271581F823BE3873002B283C /* Debug */,
+				271581F923BE3873002B283C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 271581CD23BE3872002B283C /* Project object */;
+}
