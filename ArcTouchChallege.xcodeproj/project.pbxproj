@@ -19,6 +19,13 @@
 		2767797E23BE8B1300FA6550 /* QuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2767797D23BE8B1300FA6550 /* QuestionViewController.xib */; };
 		27B0B89123BEA34D0047BAF1 /* QuestionViewModelDelegateMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B0B89023BEA34D0047BAF1 /* QuestionViewModelDelegateMock.swift */; };
 		27B0B89423BEA98D0047BAF1 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B0B89323BEA98D0047BAF1 /* LoadingView.swift */; };
+		27EAB54C23BEAFCF005F3C06 /* APIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EAB54B23BEAFCF005F3C06 /* APIProvider.swift */; };
+		27EAB54E23BEB154005F3C06 /* URLSession+DataTaskWithResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EAB54D23BEB154005F3C06 /* URLSession+DataTaskWithResult.swift */; };
+		27FFA20C23BEB2FA00A4D602 /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FFA20B23BEB2FA00A4D602 /* APIEndpoint.swift */; };
+		27FFA20F23BEB5BA00A4D602 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FFA20E23BEB5BA00A4D602 /* Question.swift */; };
+		27FFA21423BF6FEF00A4D602 /* EndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FFA21323BF6FEF00A4D602 /* EndpointTests.swift */; };
+		27FFA21623BF723000A4D602 /* URLSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FFA21523BF723000A4D602 /* URLSessionMock.swift */; };
+		27FFA21823BF78E000A4D602 /* APIProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FFA21723BF78E000A4D602 /* APIProviderTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +55,13 @@
 		2767797D23BE8B1300FA6550 /* QuestionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionViewController.xib; sourceTree = "<group>"; };
 		27B0B89023BEA34D0047BAF1 /* QuestionViewModelDelegateMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewModelDelegateMock.swift; sourceTree = "<group>"; };
 		27B0B89323BEA98D0047BAF1 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		27EAB54B23BEAFCF005F3C06 /* APIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProvider.swift; sourceTree = "<group>"; };
+		27EAB54D23BEB154005F3C06 /* URLSession+DataTaskWithResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+DataTaskWithResult.swift"; sourceTree = "<group>"; };
+		27FFA20B23BEB2FA00A4D602 /* APIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoint.swift; sourceTree = "<group>"; };
+		27FFA20E23BEB5BA00A4D602 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		27FFA21323BF6FEF00A4D602 /* EndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointTests.swift; sourceTree = "<group>"; };
+		27FFA21523BF723000A4D602 /* URLSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionMock.swift; sourceTree = "<group>"; };
+		27FFA21723BF78E000A4D602 /* APIProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProviderTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,9 +103,11 @@
 		271581D723BE3872002B283C /* ArcTouchChallege */ = {
 			isa = PBXGroup;
 			children = (
+				27FFA20D23BEB59F00A4D602 /* Model */,
 				2715820623BE4D67002B283C /* Shared */,
-				271581FE23BE3CF8002B283C /* Resources */,
+				27EAB54A23BEAFBE005F3C06 /* Network */,
 				271581FF23BE3D09002B283C /* UI */,
+				271581FE23BE3CF8002B283C /* Resources */,
 				2715820023BE3D1A002B283C /* SupportingFiles */,
 			);
 			path = ArcTouchChallege;
@@ -100,6 +116,7 @@
 		271581EE23BE3873002B283C /* ArcTouchChallegeTests */ = {
 			isa = PBXGroup;
 			children = (
+				27FFA21023BF6FCE00A4D602 /* Network */,
 				2715820A23BE577C002B283C /* UI */,
 				271581EF23BE3873002B283C /* ArcTouchChallegeTests.swift */,
 				271581F123BE3873002B283C /* Info.plist */,
@@ -149,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				2715820823BE4D7B002B283C /* UIColor+CustomColors.swift */,
+				27EAB54D23BEB154005F3C06 /* URLSession+DataTaskWithResult.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -168,6 +186,33 @@
 				27B0B89323BEA98D0047BAF1 /* LoadingView.swift */,
 			);
 			name = LoadingView;
+			sourceTree = "<group>";
+		};
+		27EAB54A23BEAFBE005F3C06 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				27EAB54B23BEAFCF005F3C06 /* APIProvider.swift */,
+				27FFA20B23BEB2FA00A4D602 /* APIEndpoint.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		27FFA20D23BEB59F00A4D602 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				27FFA20E23BEB5BA00A4D602 /* Question.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		27FFA21023BF6FCE00A4D602 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				27FFA21523BF723000A4D602 /* URLSessionMock.swift */,
+				27FFA21323BF6FEF00A4D602 /* EndpointTests.swift */,
+				27FFA21723BF78E000A4D602 /* APIProviderTests.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,8 +337,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27EAB54E23BEB154005F3C06 /* URLSession+DataTaskWithResult.swift in Sources */,
+				27FFA20C23BEB2FA00A4D602 /* APIEndpoint.swift in Sources */,
 				271581D923BE3872002B283C /* AppDelegate.swift in Sources */,
+				27EAB54C23BEAFCF005F3C06 /* APIProvider.swift in Sources */,
 				2715820923BE4D7B002B283C /* UIColor+CustomColors.swift in Sources */,
+				27FFA20F23BEB5BA00A4D602 /* Question.swift in Sources */,
 				271581FC23BE3958002B283C /* QuestionViewController.swift in Sources */,
 				2715820523BE4783002B283C /* QuestionViewModel.swift in Sources */,
 				271581DB23BE3872002B283C /* SceneDelegate.swift in Sources */,
@@ -305,8 +354,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27FFA21623BF723000A4D602 /* URLSessionMock.swift in Sources */,
+				27FFA21823BF78E000A4D602 /* APIProviderTests.swift in Sources */,
 				271581F023BE3873002B283C /* ArcTouchChallegeTests.swift in Sources */,
 				27B0B89123BEA34D0047BAF1 /* QuestionViewModelDelegateMock.swift in Sources */,
+				27FFA21423BF6FEF00A4D602 /* EndpointTests.swift in Sources */,
 				2715820C23BE5799002B283C /* QuestionViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

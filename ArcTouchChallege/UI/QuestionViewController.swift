@@ -25,14 +25,15 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var resetButton: UIButton!
 
     private lazy var viewModel: QuestionViewModel = {
-        return QuestionViewModel(delegate: self)
+        let apiProvider = APIProvider()
+        return QuestionViewModel(delegate: self, provider: apiProvider)
     }()
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        setupContent()
+        viewModel.start()
     }
 
     // MARK: - Methods
@@ -41,7 +42,13 @@ class QuestionViewController: UIViewController {
         resetButton.setTitleColor(.white, for: .normal)
         resetButton.layer.cornerRadius = 10.0
 
-        loadingView.isHidden = true
+        bottomWrapperView.layer.shadowColor = UIColor.black.cgColor
+        bottomWrapperView.layer.shadowOpacity = 0.3
+        bottomWrapperView.layer.shadowOffset = .zero
+        bottomWrapperView.layer.shadowRadius = 1
+
+        loadingView.isHidden = false
+        contentWrapperView.isHidden = true
     }
 
     private func setupContent() {
@@ -84,10 +91,12 @@ extension QuestionViewController: QuestionViewModelDelegate {
     }
 
     func viewStateChanged(to newState: QuestionViewModel.State) {
-        if newState == .loading {
-            loadingView.isHidden = false
-        } else {
-            contentWrapperView.isHidden = false
+        let isLoading = (newState == .loading)
+        loadingView.isHidden = !isLoading
+        contentWrapperView.isHidden = isLoading
+
+        if newState == .ready {
+            refreshView()
         }
     }
 }

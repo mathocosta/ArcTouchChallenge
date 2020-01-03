@@ -10,6 +10,9 @@ import Foundation
 @testable import ArcTouchChallege
 
 class QuestionViewModelDelegateMock: QuestionViewModelDelegate {
+    func viewStateChanged(to newState: QuestionViewModel.State) {
+    }
+
     var onUpdateTimer: ((String) -> Void)?
     var onShouldReloadContent: (() -> Void)?
     var onPresentEndingAlert: ((String, String, String) -> Void)?

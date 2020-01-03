@@ -15,8 +15,9 @@ class QuestionViewModelTests: XCTestCase {
     var viewModelDelegateMock: QuestionViewModelDelegateMock!
 
     override func setUp() {
+        let provider = APIProvider()
         self.viewModelDelegateMock = QuestionViewModelDelegateMock()
-        self.viewModel = QuestionViewModel(delegate: viewModelDelegateMock)
+        self.viewModel = QuestionViewModel(delegate: viewModelDelegateMock, provider: provider)
     }
 
     func testInit_ShouldSetDelegate() {
@@ -24,7 +25,7 @@ class QuestionViewModelTests: XCTestCase {
     }
 
     func testTitleText_InitialValue() {
-        XCTAssertEqual(viewModel.titleText, "What are all the Java keywords?", "Wrong initial value for titleText")
+        XCTAssertEqual(viewModel.titleText, "", "Wrong initial value for titleText")
     }
 
     func testResetButtonTitleText_InitialValue() {

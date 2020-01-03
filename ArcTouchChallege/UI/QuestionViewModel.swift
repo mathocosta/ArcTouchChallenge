@@ -28,18 +28,24 @@ class QuestionViewModel: NSObject {
     private var timeLeft: Double
     private var timer: Timer!
 
+    let apiProvider: APIProvider
+
     var allAnswers = [String]()
     var correctAnswers = [String]()
 
-    var viewState: State
+    var viewState: State {
+        didSet { delegate?.viewStateChanged(to: viewState) }
+    }
+
+    var answersCount: Int {
+        return allAnswers.count
+    }
 
     var correctAnswersCounter: Int {
         return correctAnswers.count
     }
 
-    var titleText: String {
-        return "What are all the Java keywords?"
-    }
+    var titleText: String = ""
 
     var textFieldPlaceholder: String {
         return "Insert Word"
@@ -58,18 +64,39 @@ class QuestionViewModel: NSObject {
     }
 
     // MARK: - Initializers
-    init(delegate: QuestionViewModelDelegate) {
+    init(delegate: QuestionViewModelDelegate, provider: APIProvider) {
         self.delegate = delegate
-        self.viewState = .ready
+        self.apiProvider = provider
+        self.viewState = .loading
         self.timeLeft = defaultTimeInterval
         super.init()
-        fireTimer()
     }
 
     // MARK: - Methods
+    func start() {
+        loadQuestion()
+    }
+
+    private func loadQuestion() {
+        viewState = .loading
+        let endpoint = Endpoint.firstQuestion()
+        apiProvider.request(type: Question.self, endpoint: endpoint) { (result) in
+            switch result {
+            case .success(let question):
+                self.titleText = question.title
+                self.allAnswers = question.answers
+                DispatchQueue.main.async { self.viewState = .ready }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+
     func reset() {
         timeLeft = defaultTimeInterval
-        timer.invalidate()
+        if timer != nil {
+            timer.invalidate()
+        }
         delegate?.shouldReloadContent()
     }
 
