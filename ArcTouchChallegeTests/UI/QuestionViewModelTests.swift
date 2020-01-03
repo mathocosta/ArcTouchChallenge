@@ -28,8 +28,17 @@ class QuestionViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.titleText, "", "Wrong initial value for titleText")
     }
 
-    func testResetButtonTitleText_InitialValue() {
-        XCTAssertEqual(viewModel.resetButtonTitleText, "Reset", "Wrong initial value for resetButtonTitleText")
+    func testResetButtonTitleText_WhenRunningState() {
+        viewModel.viewState = .running
+        XCTAssertEqual(viewModel.buttonTitle, "Reset", "Wrong initial value for resetButtonTitleText")
+    }
+
+    func testResetButtonTitleText_WhenReadyOrLoadingState() {
+        viewModel.viewState = .ready
+        XCTAssertEqual(viewModel.buttonTitle, "Start", "Wrong initial value for buttonTitle when ready state")
+
+        viewModel.viewState = .loading
+        XCTAssertEqual(viewModel.buttonTitle, "Start", "Wrong initial value for buttonTitle when loading state")
     }
 
     func testTimerText_InitialValue() {
@@ -73,10 +82,48 @@ class QuestionViewModelTests: XCTestCase {
         wait(for: [expectation], timeout: 3.0)
     }
 
-    func testReset_ShouldCallDelegate_ToReloadContent() {
-        let expectation = XCTestExpectation(description: "Call delegate to reload content")
-        viewModelDelegateMock.onShouldReloadContent = { expectation.fulfill() }
+    func testReset_ShouldCallDelete_ToUpdateState() {
+        let expectation = XCTestExpectation(description: "Call delegate with ready state")
+        let expected = QuestionViewModel.State.ready
+        viewModelDelegateMock.onViewStateChanged = { (newState) in
+            XCTAssertEqual(newState, expected)
+            expectation.fulfill()
+        }
+
         viewModel.reset()
-        wait(for: [expectation], timeout: 5.0)
+        wait(for: [expectation], timeout: 3.0)
+    }
+
+    func testFireTimer_ShouldCallDelete_ToUpdateState() {
+        let expectation = XCTestExpectation(description: "Call delegate with running state")
+        let expected = QuestionViewModel.State.running
+        viewModelDelegateMock.onViewStateChanged = { (newState) in
+            XCTAssertEqual(newState, expected)
+            expectation.fulfill()
+        }
+
+        viewModel.fireTimer()
+        wait(for: [expectation], timeout: 3.0)
+    }
+
+    func testPrepare_ShouldCallDelete_ToUpdateState() {
+        let expectation = XCTestExpectation(description: "Call delegate after load question")
+        let mockDataTask = DataTaskResultMock()
+        let apiProvider = APIProvider(session: mockDataTask)
+        var counter = 0
+        self.viewModel = QuestionViewModel(
+            delegate: viewModelDelegateMock, provider: apiProvider)
+        viewModelDelegateMock.onViewStateChanged = { (newState) in
+            counter += 1
+            XCTAssert(newState == .loading || newState == .ready)
+
+            if counter == 2 {
+                expectation.fulfill()
+            }
+        }
+
+        viewModel.prepare()
+        wait(for: [expectation], timeout: 3.0)
+        XCTAssertEqual(counter, 2)
     }
 }

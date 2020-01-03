@@ -9,7 +9,6 @@
 import Foundation
 
 protocol QuestionViewModelDelegate: class {
-    func shouldReloadContent()
     func update(timerText: String)
     func presentEndingAlert(title: String, message: String, buttonTitle: String)
     func viewStateChanged(to newState: QuestionViewModel.State)
@@ -18,7 +17,7 @@ protocol QuestionViewModelDelegate: class {
 
 class QuestionViewModel: NSObject {
     enum State {
-        case loading, ready
+        case loading, ready, running
     }
 
     // MARK: - Properties
@@ -60,8 +59,12 @@ class QuestionViewModel: NSObject {
         return "05:00"
     }
 
-    var resetButtonTitleText: String {
-        return "Reset"
+    var buttonTitle: String {
+        if viewState == .running {
+            return "Reset"
+        } else {
+            return "Start"
+        }
     }
 
     // MARK: - Initializers
@@ -74,7 +77,7 @@ class QuestionViewModel: NSObject {
     }
 
     // MARK: - Methods
-    func start() {
+    func prepare() {
         loadQuestion()
     }
 
@@ -97,7 +100,7 @@ class QuestionViewModel: NSObject {
         timeLeft = defaultTimeInterval
         correctAnswers = [String]()
         stopTimer()
-        delegate?.shouldReloadContent()
+        viewState = .ready
     }
 
     func check(keyword: String) {
@@ -114,6 +117,7 @@ class QuestionViewModel: NSObject {
 
     func fireTimer() {
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: timerHasEnded(_:))
+        viewState = .running
     }
 
     func stopTimer() {

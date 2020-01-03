@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QuestionViewController" customModule="ArcTouchChallege" customModuleProvider="target">
             <connections>
+                <outlet property="actionButton" destination="hwI-GA-ZwP" id="9FI-yO-Tih"/>
                 <outlet property="answerTextField" destination="MOf-Vu-4OK" id="pUn-bz-Jad"/>
                 <outlet property="answersCounterLabel" destination="5gB-xl-PjM" id="ec2-on-beh"/>
                 <outlet property="answersTableView" destination="cdh-Iz-cDp" id="xIK-2f-KcQ"/>
@@ -18,7 +19,6 @@
                 <outlet property="bottomWrapperViewBottomConstraint" destination="ec8-9G-ST2" id="2rZ-U2-M5d"/>
                 <outlet property="contentWrapperView" destination="aRq-Tn-1A5" id="YtH-Ed-Cc3"/>
                 <outlet property="loadingView" destination="bdE-3t-PZT" id="TP5-XG-lzt"/>
-                <outlet property="resetButton" destination="hwI-GA-ZwP" id="9FI-yO-Tih"/>
                 <outlet property="timerLabel" destination="Jvz-5u-p1g" id="eDv-2G-YPc"/>
                 <outlet property="titleLabel" destination="fqe-JI-5Jn" id="vJg-r3-VbI"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -76,7 +76,7 @@
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                             <connections>
-                                <action selector="resetButtonTapped:" destination="-1" eventType="touchUpInside" id="K2b-G0-Li7"/>
+                                <action selector="actionButtonTapped:" destination="-1" eventType="touchUpInside" id="K2b-G0-Li7"/>
                             </connections>
                         </button>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="104" translatesAutoresizingMaskIntoConstraints="NO" id="vJj-65-jBB">
@@ -129,11 +129,6 @@
                 <constraint firstItem="aRq-Tn-1A5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="xW8-jy-8tR"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <variation key="default">
-                <mask key="subviews">
-                    <exclude reference="bdE-3t-PZT"/>
-                </mask>
-            </variation>
             <point key="canvasLocation" x="137.68115942028987" y="140.625"/>
         </view>
     </objects>

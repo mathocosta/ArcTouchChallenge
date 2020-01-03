@@ -11,17 +11,14 @@ import Foundation
 
 class QuestionViewModelDelegateMock: QuestionViewModelDelegate {
     var onUpdateTimer: ((String) -> Void)?
-    var onShouldReloadContent: (() -> Void)?
     var onPresentEndingAlert: ((String, String, String) -> Void)?
+    var onViewStateChanged: ((QuestionViewModel.State) -> Void)?
 
     func didFind(answer: String) {
     }
 
     func viewStateChanged(to newState: QuestionViewModel.State) {
-    }
-
-    func shouldReloadContent() {
-        onShouldReloadContent?()
+        onViewStateChanged?(newState)
     }
 
     func update(timerText: String) {

@@ -22,9 +22,9 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var bottomWrapperView: UIView!
     @IBOutlet weak var answersCounterLabel: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
-    @IBOutlet weak var resetButton: UIButton!
+    @IBOutlet weak var actionButton: UIButton!
     @IBOutlet weak var bottomWrapperViewBottomConstraint: NSLayoutConstraint!
-    
+
     private lazy var viewModel: QuestionViewModel = {
         let apiProvider = APIProvider()
         return QuestionViewModel(delegate: self, provider: apiProvider)
@@ -34,16 +34,21 @@ class QuestionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setupContent()
         setupTextField()
         setupTableView()
-        viewModel.start()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        viewModel.prepare()
     }
 
     // MARK: - Methods
     private func setupUI() {
-        resetButton.backgroundColor = .customOrange
-        resetButton.setTitleColor(.white, for: .normal)
-        resetButton.layer.cornerRadius = 10.0
+        actionButton.backgroundColor = .customOrange
+        actionButton.setTitleColor(.white, for: .normal)
+        actionButton.layer.cornerRadius = 10.0
 
         bottomWrapperView.layer.shadowColor = UIColor.black.cgColor
         bottomWrapperView.layer.shadowOpacity = 0.3
@@ -78,18 +83,21 @@ class QuestionViewController: UIViewController {
         answerTextField.placeholder = viewModel.textFieldPlaceholder
         answersCounterLabel.text = viewModel.answersCounterText
         timerLabel.text = viewModel.timerText
-        resetButton.setTitle(viewModel.resetButtonTitleText, for: .normal)
+        actionButton.setTitle(viewModel.buttonTitle, for: .normal)
     }
 
     private func refreshView() {
         setupContent()
         answersTableView.reloadData()
-        viewModel.fireTimer()
     }
 
     // MARK: - Actions
-    @IBAction func resetButtonTapped(_ sender: UIButton) {
-        viewModel.reset()
+    @IBAction func actionButtonTapped(_ sender: UIButton) {
+        if viewModel.viewState == .running {
+            viewModel.reset()
+        } else {
+            viewModel.fireTimer()
+        }
     }
 
     @objc func answerTextFieldDidChange(_ textField: UITextField) {
@@ -136,10 +144,6 @@ extension QuestionViewController: UITableViewDataSource {
 
 // MARK: - QuestionViewModelDelegate
 extension QuestionViewController: QuestionViewModelDelegate {
-    func shouldReloadContent() {
-        refreshView()
-    }
-
     func update(timerText: String) {
         timerLabel.text = timerText
     }
@@ -159,9 +163,7 @@ extension QuestionViewController: QuestionViewModelDelegate {
         loadingView.isHidden = !isLoading
         contentWrapperView.isHidden = isLoading
 
-        if newState == .ready {
-            refreshView()
-        }
+        refreshView()
     }
 
     func didFind(answer: String) {
