@@ -23,7 +23,8 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var answersCounterLabel: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var resetButton: UIButton!
-
+    @IBOutlet weak var bottomWrapperViewBottomConstraint: NSLayoutConstraint!
+    
     private lazy var viewModel: QuestionViewModel = {
         let apiProvider = APIProvider()
         return QuestionViewModel(delegate: self, provider: apiProvider)
@@ -56,6 +57,15 @@ class QuestionViewController: UIViewController {
     private func setupTextField() {
         answerTextField.delegate = self
         answerTextField.addTarget(self, action: #selector(answerTextFieldDidChange(_:)), for: .editingChanged)
+
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(textFieldKeyboardWillShow(_:)),
+                                               name: UIResponder.keyboardWillShowNotification,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(textFieldKeyboardWillHide(_:)),
+                                               name: UIResponder.keyboardWillHideNotification,
+                                               object: nil)
     }
 
     private func setupTableView() {
@@ -77,6 +87,7 @@ class QuestionViewController: UIViewController {
         viewModel.fireTimer()
     }
 
+    // MARK: - Actions
     @IBAction func resetButtonTapped(_ sender: UIButton) {
         viewModel.reset()
     }
@@ -84,6 +95,20 @@ class QuestionViewController: UIViewController {
     @objc func answerTextFieldDidChange(_ textField: UITextField) {
         guard let currentText = textField.text, !currentText.isEmpty else { return }
         viewModel.check(keyword: currentText)
+    }
+
+    @objc func textFieldKeyboardWillShow(_ notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue) {
+            let keyboardHeight = keyboardSize.cgRectValue.height
+            bottomWrapperViewBottomConstraint.constant += (keyboardHeight - view.safeAreaInsets.bottom)
+
+            view.layoutIfNeeded()
+        }
+    }
+
+    @objc func textFieldKeyboardWillHide(_ notification: NSNotification) {
+        bottomWrapperViewBottomConstraint.constant = 16.0
+        view.layoutIfNeeded()
     }
 }
 
