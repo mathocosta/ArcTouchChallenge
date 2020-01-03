@@ -15,7 +15,7 @@ class QuestionViewController: UIViewController {
     // Main content
     @IBOutlet weak var contentWrapperView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var answerTextField: UITextField!
+    @IBOutlet weak var answerTextField: CustomTextField!
     @IBOutlet weak var answersTableView: UITableView!
 
     // Bottom view

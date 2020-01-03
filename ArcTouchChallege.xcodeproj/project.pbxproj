@@ -17,6 +17,7 @@
 		2715820923BE4D7B002B283C /* UIColor+CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2715820823BE4D7B002B283C /* UIColor+CustomColors.swift */; };
 		2715820C23BE5799002B283C /* QuestionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2715820B23BE5799002B283C /* QuestionViewModelTests.swift */; };
 		2767797E23BE8B1300FA6550 /* QuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2767797D23BE8B1300FA6550 /* QuestionViewController.xib */; };
+		27798F8B23BFE54300C9B4AB /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27798F8A23BFE54300C9B4AB /* CustomTextField.swift */; };
 		27B0B89123BEA34D0047BAF1 /* QuestionViewModelDelegateMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B0B89023BEA34D0047BAF1 /* QuestionViewModelDelegateMock.swift */; };
 		27B0B89423BEA98D0047BAF1 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B0B89323BEA98D0047BAF1 /* LoadingView.swift */; };
 		27EAB54C23BEAFCF005F3C06 /* APIProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EAB54B23BEAFCF005F3C06 /* APIProvider.swift */; };
@@ -53,6 +54,7 @@
 		2715820823BE4D7B002B283C /* UIColor+CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+CustomColors.swift"; sourceTree = "<group>"; };
 		2715820B23BE5799002B283C /* QuestionViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewModelTests.swift; sourceTree = "<group>"; };
 		2767797D23BE8B1300FA6550 /* QuestionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionViewController.xib; sourceTree = "<group>"; };
+		27798F8A23BFE54300C9B4AB /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		27B0B89023BEA34D0047BAF1 /* QuestionViewModelDelegateMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewModelDelegateMock.swift; sourceTree = "<group>"; };
 		27B0B89323BEA98D0047BAF1 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		27EAB54B23BEAFCF005F3C06 /* APIProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIProvider.swift; sourceTree = "<group>"; };
@@ -136,7 +138,7 @@
 		271581FF23BE3D09002B283C /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				27B0B89523BEA9900047BAF1 /* LoadingView */,
+				27798F8C23BFE87100C9B4AB /* Components */,
 				2767797D23BE8B1300FA6550 /* QuestionViewController.xib */,
 				271581FA23BE3958002B283C /* QuestionViewController.swift */,
 				2715820423BE4783002B283C /* QuestionViewModel.swift */,
@@ -178,6 +180,23 @@
 				27B0B89023BEA34D0047BAF1 /* QuestionViewModelDelegateMock.swift */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		27798F8C23BFE87100C9B4AB /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				27798F8D23BFE88600C9B4AB /* CustomTextField */,
+				27B0B89523BEA9900047BAF1 /* LoadingView */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
+		27798F8D23BFE88600C9B4AB /* CustomTextField */ = {
+			isa = PBXGroup;
+			children = (
+				27798F8A23BFE54300C9B4AB /* CustomTextField.swift */,
+			);
+			name = CustomTextField;
 			sourceTree = "<group>";
 		};
 		27B0B89523BEA9900047BAF1 /* LoadingView */ = {
@@ -338,6 +357,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				27EAB54E23BEB154005F3C06 /* URLSession+DataTaskWithResult.swift in Sources */,
+				27798F8B23BFE54300C9B4AB /* CustomTextField.swift in Sources */,
 				27FFA20C23BEB2FA00A4D602 /* APIEndpoint.swift in Sources */,
 				271581D923BE3872002B283C /* AppDelegate.swift in Sources */,
 				27EAB54C23BEAFCF005F3C06 /* APIProvider.swift in Sources */,
