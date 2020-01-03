@@ -13,6 +13,7 @@ protocol QuestionViewModelDelegate: class {
     func update(timerText: String)
     func presentEndingAlert(title: String, message: String, buttonTitle: String)
     func viewStateChanged(to newState: QuestionViewModel.State)
+    func didFind(answer: String)
 }
 
 class QuestionViewModel: NSObject {
@@ -52,7 +53,7 @@ class QuestionViewModel: NSObject {
     }
 
     var answersCounterText: String {
-        return "00/50"
+        return String(format: "%02d/%02d", correctAnswersCounter, answersCount)
     }
 
     var timerText: String {
@@ -94,18 +95,31 @@ class QuestionViewModel: NSObject {
 
     func reset() {
         timeLeft = defaultTimeInterval
-        if timer != nil {
-            timer.invalidate()
-        }
+        correctAnswers = [String]()
+        stopTimer()
         delegate?.shouldReloadContent()
     }
 
-    func check(keyword: String) -> Bool {
-        return true
+    func check(keyword: String) {
+        if let findedAnswer = allAnswers.first(where: { keyword.lowercased() == $0 }),
+            !correctAnswers.contains(findedAnswer) {
+            correctAnswers.insert(findedAnswer, at: 0)
+            delegate?.didFind(answer: findedAnswer)
+        }
+
+        if correctAnswersCounter == answersCount {
+            allAnswersFound()
+        }
     }
 
     func fireTimer() {
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: timerHasEnded(_:))
+    }
+
+    func stopTimer() {
+        if timer != nil {
+            timer.invalidate()
+        }
     }
 
     func timerHasEnded(_ timer: Timer) {
@@ -117,12 +131,18 @@ class QuestionViewModel: NSObject {
         delegate?.update(timerText: newText)
 
         if timeLeft <= 0 {
-            timer.invalidate()
             timeIsOver()
         }
     }
 
+    func allAnswersFound() {
+        stopTimer()
+        let message = "Good job! You found all the answers on time. Keep up with the great work."
+        delegate?.presentEndingAlert(title: "Congratulations", message: message, buttonTitle: "Play Again")
+    }
+
     func timeIsOver() {
+        stopTimer()
         let message = "Sorry, time is up! You got \(correctAnswersCounter) of 50 answers"
         delegate?.presentEndingAlert(
             title: "Time finished",

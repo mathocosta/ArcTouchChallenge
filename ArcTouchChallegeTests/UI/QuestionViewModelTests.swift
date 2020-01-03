@@ -37,7 +37,7 @@ class QuestionViewModelTests: XCTestCase {
     }
 
     func testAnswersCounterText_InitialValue() {
-        XCTAssertEqual(viewModel.answersCounterText, "00/50", "Wrong initial value for answersCounterText")
+        XCTAssertEqual(viewModel.answersCounterText, "00/00", "Wrong initial value for answersCounterText")
     }
 
     func testTextFieldPlaceholder_InitialValue() {

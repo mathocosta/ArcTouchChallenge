@@ -33,6 +33,8 @@ class QuestionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setupTextField()
+        setupTableView()
         viewModel.start()
     }
 
@@ -51,6 +53,16 @@ class QuestionViewController: UIViewController {
         contentWrapperView.isHidden = true
     }
 
+    private func setupTextField() {
+        answerTextField.delegate = self
+        answerTextField.addTarget(self, action: #selector(answerTextFieldDidChange(_:)), for: .editingChanged)
+    }
+
+    private func setupTableView() {
+        answersTableView.allowsSelection = false
+        answersTableView.dataSource = self
+    }
+
     private func setupContent() {
         titleLabel.text = viewModel.titleText
         answerTextField.placeholder = viewModel.textFieldPlaceholder
@@ -61,6 +73,7 @@ class QuestionViewController: UIViewController {
 
     private func refreshView() {
         setupContent()
+        answersTableView.reloadData()
         viewModel.fireTimer()
     }
 
@@ -68,6 +81,32 @@ class QuestionViewController: UIViewController {
         viewModel.reset()
     }
 
+    @objc func answerTextFieldDidChange(_ textField: UITextField) {
+        guard let currentText = textField.text, !currentText.isEmpty else { return }
+        viewModel.check(keyword: currentText)
+    }
+}
+
+// MARK: - UITextViewDelegate
+extension QuestionViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.endEditing(true)
+        return true
+    }
+}
+
+// MARK: - UITableViewDataSource
+extension QuestionViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.correctAnswersCounter
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+        cell.textLabel?.font = .systemFont(ofSize: 17)
+        cell.textLabel?.text = viewModel.correctAnswers[indexPath.row]
+        return cell
+    }
 }
 
 // MARK: - QuestionViewModelDelegate
@@ -98,5 +137,12 @@ extension QuestionViewController: QuestionViewModelDelegate {
         if newState == .ready {
             refreshView()
         }
+    }
+
+    func didFind(answer: String) {
+        let indexPath = IndexPath(row: 0, section: 0)
+        answersTableView.insertRows(at: [indexPath], with: .automatic)
+        answerTextField.text = ""
+        answersCounterLabel.text = viewModel.answersCounterText
     }
 }
