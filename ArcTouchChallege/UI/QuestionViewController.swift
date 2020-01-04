@@ -81,6 +81,8 @@ class QuestionViewController: UIViewController {
     private func setupContent() {
         titleLabel.text = viewModel.titleText
         answerTextField.placeholder = viewModel.textFieldPlaceholder
+        answerTextField.isEnabled = viewModel.textFieldIsEnabled
+        answerTextField.resignFirstResponder()
         answersCounterLabel.text = viewModel.answersCounterText
         timerLabel.text = viewModel.timerText
         actionButton.setTitle(viewModel.buttonTitle, for: .normal)

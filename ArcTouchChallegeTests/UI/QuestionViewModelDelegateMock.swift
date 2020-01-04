@@ -13,8 +13,10 @@ class QuestionViewModelDelegateMock: QuestionViewModelDelegate {
     var onUpdateTimer: ((String) -> Void)?
     var onPresentEndingAlert: ((String, String, String) -> Void)?
     var onViewStateChanged: ((QuestionViewModel.State) -> Void)?
+    var onDidFind: ((String) -> Void)?
 
     func didFind(answer: String) {
+        onDidFind?(answer)
     }
 
     func viewStateChanged(to newState: QuestionViewModel.State) {

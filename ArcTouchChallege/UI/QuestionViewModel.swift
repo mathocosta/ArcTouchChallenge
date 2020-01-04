@@ -51,6 +51,10 @@ class QuestionViewModel: NSObject {
         return "Insert Word"
     }
 
+    var textFieldIsEnabled: Bool {
+        return viewState == .running
+    }
+
     var answersCounterText: String {
         return String(format: "%02d/%02d", correctAnswersCounter, answersCount)
     }

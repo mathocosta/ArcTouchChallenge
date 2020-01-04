@@ -18,8 +18,6 @@ func mockResponseBuilder() -> Data {
         }
     """
 
-    print(jsonString)
-
     return jsonString.data(using: .utf8)!
 }
 

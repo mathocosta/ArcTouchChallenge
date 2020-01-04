@@ -15,9 +15,10 @@ class QuestionViewModelTests: XCTestCase {
     var viewModelDelegateMock: QuestionViewModelDelegateMock!
 
     override func setUp() {
-        let provider = APIProvider()
+        let mockDataTask = DataTaskResultMock()
+        let apiProvider = APIProvider(session: mockDataTask)
         self.viewModelDelegateMock = QuestionViewModelDelegateMock()
-        self.viewModel = QuestionViewModel(delegate: viewModelDelegateMock, provider: provider)
+        self.viewModel = QuestionViewModel(delegate: viewModelDelegateMock, provider: apiProvider)
     }
 
     func testInit_ShouldSetDelegate() {
@@ -108,11 +109,8 @@ class QuestionViewModelTests: XCTestCase {
 
     func testPrepare_ShouldCallDelete_ToUpdateState() {
         let expectation = XCTestExpectation(description: "Call delegate after load question")
-        let mockDataTask = DataTaskResultMock()
-        let apiProvider = APIProvider(session: mockDataTask)
+
         var counter = 0
-        self.viewModel = QuestionViewModel(
-            delegate: viewModelDelegateMock, provider: apiProvider)
         viewModelDelegateMock.onViewStateChanged = { (newState) in
             counter += 1
             XCTAssert(newState == .loading || newState == .ready)
@@ -125,5 +123,11 @@ class QuestionViewModelTests: XCTestCase {
         viewModel.prepare()
         wait(for: [expectation], timeout: 3.0)
         XCTAssertEqual(counter, 2)
+    }
+
+    func testCheckKeyword_ShouldInsertWord_AtCorrectAnswers() {
+        viewModel.prepare()
+        viewModel.check(keyword: "do")
+        XCTAssert(viewModel.correctAnswers.contains("do"))
     }
 }
